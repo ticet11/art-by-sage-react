@@ -37,7 +37,8 @@ app.post("/process-payment", async (req, res) => {
     const request_body = {
         source_id: request_params.nonce,
         amount_money: {
-            amount: 100, // $1.00 charge
+            // amount: 100, // $1.00 charge
+            amount: 200, // $2.00 charge
             currency: "USD",
         },
         idempotency_key: idempotency_key,
