@@ -4,6 +4,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
+import 'react-square-payment-form/lib/default.css'
 
 import NavigationContainer from "./components/NavigationContainer";
 import Home from "./pages/Home";
