@@ -1,0 +1,30 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: calc(200vh - 100px);
+}
+
+.intro-container,
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 80vw;
+    height: calc(100vh - 50px);
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        max-width: 500px;
+    }
+
+    .image {
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+}

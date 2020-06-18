@@ -5,11 +5,11 @@ export default function NavigationContainer() {
     return (
         <div className="navigation-container">
             <div className="nav-left">
+                <h1>Sage Kozub</h1>
+            </div>
+            <div className="nav-center">
                 <div>
                     <NavLink to="/">Home</NavLink>
-                </div>
-                <div>
-                    <NavLink to="/about">About</NavLink>
                 </div>
                 <div>
                     <NavLink to="/gallery">Gallery</NavLink>
