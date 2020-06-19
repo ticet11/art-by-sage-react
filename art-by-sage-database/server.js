@@ -19,4 +19,7 @@ app.use(express.json());
 const galleryRouter = require('./routes/gallery');
 app.use('/gallery', galleryRouter);
 
+const mailRouter = require('./routes/mail');
+app.use('/mail', mailRouter)
+
 app.listen(3000, () => console.log('Server Started'));

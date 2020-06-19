@@ -22,8 +22,8 @@ export default function NavigationContainer() {
                 </div>
             </div>
             <div className="nav-right">
-                <div>
-                    <NavLink to="/commissions">Commision Me</NavLink>
+                <div className='action-button' >
+                    <NavLink to="/commissions">Commission Me</NavLink>
                 </div>
             </div>
         </div>

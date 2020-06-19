@@ -1,7 +1,8 @@
 .navigation-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    margin: 0 40px;
     
     a {
         text-decoration: none;
@@ -18,5 +19,17 @@
 
     .nav-center {
         display: flex;
+    }
+
+    .nav-right {
+        .action-button {
+            padding: 5px;
+            background-color: #8c85cd;
+            border-radius: 10px;
+        
+            a {
+                color: white;
+            }
+        }
     }
 }

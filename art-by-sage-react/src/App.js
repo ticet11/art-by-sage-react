@@ -4,7 +4,8 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import "react-square-payment-form/lib/default.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faExclamationTriangle, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./components/NavigationContainer";
 import Home from "./pages/Home";
@@ -14,6 +15,9 @@ import Contact from "./pages/Contact";
 import Commissions from "./pages/Commissions";
 
 import "./styles/Main.scss";
+import "react-square-payment-form/lib/default.css";
+
+library.add(faExclamationTriangle, faCircleNotch);
 
 function App() {
     return (
