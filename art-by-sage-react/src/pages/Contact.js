@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
 export default function Contact() {
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, errors, reset } = useForm();
+    const [sent, setSent] = useState(false);
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, event) => {
         console.log(data);
+        axios
+            .post("/mail", data)
+            .then((res) => {
+                setSent(true);
+            })
+            .catch((error) => {
+                console.error("contact submit error", error);
+            });
+        event.target.reset();
     };
     return (
         <div className="contact-form-container">
@@ -79,7 +90,7 @@ export default function Contact() {
                         {errors.message.message}
                     </p>
                 )}
-                <button>Send</button>
+                <button type="submit">Send</button>
             </form>
         </div>
     );
