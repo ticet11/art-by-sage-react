@@ -1,4 +1,4 @@
-# Ecommerce Site for ArtBySage
+# Portfolio Site for ArtBySage
 
 My capstone project for Bottega coding boot camp
 
@@ -10,11 +10,14 @@ My capstone project for Bottega coding boot camp
 
 [ ] Portfolio Page
 
+[ ] Commissions request
+
 [ ] Shop Page
-    * [ ] Shopping Cart
-    * [ ] 
+    * [ ] External Link to Square page
 
 [ ] Authentication Page
+
+[ ] Gallery Editor
 
 
 ### Cohort help
