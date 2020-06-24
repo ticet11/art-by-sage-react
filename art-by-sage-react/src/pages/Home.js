@@ -4,15 +4,14 @@ import familyPic from "../assets/images/familypic.jpg";
 
 export default function Home() {
     return (
-        <div className='home-container'>
+        <div className="home-container">
             <div className="intro-container">
                 <div className="text">
-                    <h1>Howdy</h1>
+                    <h1>Welcome</h1>
                     <p>
-                        Thanks for your interest in my art! I’m a
-                        new(ish) mom who documents highlights of
-                        parenthood through comics among other artsy
-                        projects.
+                        Hey! I’m a mom, artist, and carb enthusiast.
+                        Take a look around my website! Stay as long as
+                        you’d like.
                     </p>
                 </div>
                 <div
@@ -42,21 +41,19 @@ export default function Home() {
                     className="image"
                 ></div>
                 <div className="text">
-                    <h1>A Little About Me</h1>
+                    <h1>ABOUT THE ARTIST</h1>
                     <p>
-                        I grew up loving all aspects of art, but
-                        didn’t really get serious about drawing until
-                        my young adulthood where I used it as a form
-                        of therapy. Now, I strive for my art to be a
-                        safe space for all. I’m currently based in
-                        Sandy, UT with my husband, daughter, and
-                        cuddle cat. We enjoy hiking, making pretzels,
-                        and giving our kitty lots of snuggles.
-                        Consider following me on social media! You’ll
-                        be able to interact with me in a way that
-                        influences what I create. I love asking my
-                        followers, “what should I draw next?” and I’d
-                        love to hear your perspectives and ideas!
+                        Sage has always been an avid doodler, but
+                        became serious about art once she used it as a
+                        form of therapy after traumatic life events.
+                        She believes everyone should be in therapy and
+                        that wearing crowns in public should be more
+                        widely accepted for adults.
+                        <br />
+                        She is a happy wife and proud mother of a
+                        darling daughter and a very round cat, both of
+                        whom are frequent subjects of drawings and
+                        projects. She is currently based in Utah.
                     </p>
                 </div>
             </div>
