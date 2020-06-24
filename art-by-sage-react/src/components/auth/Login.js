@@ -8,7 +8,7 @@ export default function Login() {
 
     const handleOnClick = () => {
         Auth.setIsAuthenticated(true);
-        Cookies.set("user", "loginTrue");
+        Cookies.set("user", "loginTrue", { expires: 5 });
     };
 
     return (
