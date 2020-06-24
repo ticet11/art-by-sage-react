@@ -24,3 +24,15 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/gallery/5ee982de16f08c1d808c9e9c
+
+###
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}

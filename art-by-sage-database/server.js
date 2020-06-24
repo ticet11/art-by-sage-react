@@ -19,6 +19,9 @@ app.use(express.json());
 const galleryRouter = require("./routes/gallery");
 app.use("/gallery", galleryRouter);
 
+const userRouter = require("./routes/users");
+app.use("/users", userRouter);
+
 const mailRouter = require("./routes/mail");
 app.use("/mail", mailRouter);
 
