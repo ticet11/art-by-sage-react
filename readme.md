@@ -1,23 +1,35 @@
 # Portfolio Site for ArtBySage
 
-My capstone project for Bottega coding boot camp
+My capstone project for Bottega coding boot camp.
 
 ## TODO:
 
 [ ] Home page
+    - [ ] Content
+    - [ ] Style
 
 [ ] About Page
+    - [ ] Content
+    - [ ] Style
 
 [ ] Portfolio Page
+    - [ ] Content
+    - [ ] Style
 
 [ ] Commissions request
+    - [ ] Content
+    - [ ] Style
 
 [ ] Shop Page
     * [ ] External Link to Square page
 
-[ ] Authentication Page
+[ ] Login Page
+    - [ ] Content
+    - [ ] Style
 
 [ ] Gallery Editor
+    - [ ] Content
+    - [ ] Style
 
 
 ### Cohort help
