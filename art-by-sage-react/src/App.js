@@ -16,6 +16,7 @@ import Gallery from "./pages/Gallery";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Commissions from "./pages/Commissions";
+import Login from "./components/auth/Login";
 import GalleryEditor from "./pages/GalleryEditor";
 
 import "./styles/Main.scss";
@@ -58,6 +59,7 @@ function App() {
                         path="/commissions"
                         component={Commissions}
                     />
+                    <Route exact path="/login" component={Login} />
                 </Switch>
             </div>
         </Router>

@@ -7,7 +7,6 @@ import { AuthContext } from "../context/AuthContext";
 const NavigationContainer = (props) => {
     const {
         isAuthenticated,
-        user,
         setIsAuthenticated,
         setUser,
     } = useContext(AuthContext);
