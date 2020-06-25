@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -20,11 +20,20 @@ import GalleryEditor from "./pages/GalleryEditor";
 
 import "./styles/Main.scss";
 import "react-square-payment-form/lib/default.css";
+import { AuthContext } from "./context/AuthContext";
 
 library.add(faExclamationTriangle, faCircleNotch);
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const {
+        user,
+        setUser,
+        isAuthenticated,
+        setIsAuthenticated,
+    } = useContext(AuthContext);
+
+    console.log(user);
+    console.log(isAuthenticated);
 
     return (
         <Router>

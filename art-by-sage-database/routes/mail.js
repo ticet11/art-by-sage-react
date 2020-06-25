@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post("/send", (req, res) => {
     const data = req.body;
-    console.log(data);
     const smtpTransport = nodemailer.createTransport({
         host: "smtp.hostinger.com",
         port: 587,

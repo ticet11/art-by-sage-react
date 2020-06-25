@@ -8,12 +8,10 @@ export default function Contact() {
     const [sent, setSent] = useState(false);
 
     const onSubmit = (data, event) => {
-        console.log(data);
         axios
             .post("http://localhost:3000/mail/send", data)
             .then((res) => {
                 setSent(true);
-                console.log(res)
             })
             .catch((error) => {
                 console.error("contact submit error", error);

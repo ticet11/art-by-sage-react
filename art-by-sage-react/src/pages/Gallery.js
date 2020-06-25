@@ -11,7 +11,6 @@ export default function Gallery() {
             .get("http://localhost:3000/gallery")
             .then((res) => {
                 setGallery(res.data);
-                console.log(res.data);
                 setIsLoading(false);
             })
             .catch((error) =>
