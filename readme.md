@@ -5,11 +5,7 @@ My capstone project for Bottega coding boot camp.
 ## TODO:
 
 [ ] Home page
-    - [ ] Content
-    - [ ] Style
-
-[ ] About Page
-    - [ ] Content
+    - [x] Content
     - [ ] Style
 
 [ ] Portfolio Page
@@ -17,7 +13,7 @@ My capstone project for Bottega coding boot camp.
     - [ ] Style
 
 [ ] Commissions request
-    - [ ] Content
+    - [x] Content
     - [ ] Style
 
 [ ] Shop Page

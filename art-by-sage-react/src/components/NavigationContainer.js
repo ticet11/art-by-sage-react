@@ -5,6 +5,21 @@ import AuthService from "../Services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 
 const NavigationContainer = (props) => {
+    const {
+        isAuthenticated,
+        user,
+        setIsAuthenticated,
+        setUser,
+    } = useContext(AuthContext);
+
+    const onLogoutClick = () => {
+        AuthService.logout().then((data) => {
+            if (data.success) {
+                setUser(data.user);
+                setIsAuthenticated(false);
+            }
+        });
+    };
     return (
         <div className="navigation-container">
             <div className="nav-left">
@@ -23,10 +38,24 @@ const NavigationContainer = (props) => {
                 <div>
                     <NavLink to="/contact">Contact</NavLink>
                 </div>
+                {isAuthenticated ? (
+                    <div>
+                        <NavLink to="/galleryeditor">
+                            Gallery Editor
+                        </NavLink>
+                    </div>
+                ) : null}
             </div>
             <div className="nav-right">
                 <div className="action-button">
                     <NavLink to="/commissions">Commission Me</NavLink>
+                </div>
+                <div>
+                    {isAuthenticated ? (
+                        <button onClick={onLogoutClick()}>
+                            Logout
+                        </button>
+                    ) : null}
                 </div>
             </div>
         </div>
