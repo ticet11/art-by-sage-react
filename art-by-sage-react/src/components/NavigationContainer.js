@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import AuthService from "../Services/AuthService";
+import { AuthContext } from "../context/AuthContext";
 
 export default function NavigationContainer() {
     return (
@@ -22,7 +25,7 @@ export default function NavigationContainer() {
                 </div>
             </div>
             <div className="nav-right">
-                <div className='action-button' >
+                <div className="action-button">
                     <NavLink to="/commissions">Commission Me</NavLink>
                 </div>
             </div>

@@ -82,6 +82,18 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get(
+    "/authenticated",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        const { username } = req.user;
+        res.status(200).json({
+            isAuthenticated: true,
+            user: { username },
+        });
+    }
+);
+
 // Getting One
 router.get("/:id", getUser, (req, res) => {
     res.send(res.user);

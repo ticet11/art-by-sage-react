@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
-const passportConfig = require("../passport");
-const JWT = require("jsonwebtoken");
+
 const GalleryItem = require("../models/galleryItem");
 
 // Getting All
