@@ -5,21 +5,6 @@ const passportConfig = require("../passport");
 const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 
-// Getting All
-router.get("/", async (req, res) => {
-    try {
-        const users = await User.find();
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
-
-// Getting One
-router.get("/:id", getUser, (req, res) => {
-    res.send(res.user);
-});
-
 // Creating One
 router.post("/register", async (req, res) => {
     const { username, password } = req.body;
@@ -58,6 +43,48 @@ router.post("/register", async (req, res) => {
             });
         }
     });
+});
+
+// Login
+router.post(
+    "/login",
+    passport.authenticate("local", { session: false }),
+    (req, res) => {
+        if (req.isAuthenticated()) {
+            const { _id, username } = req.user;
+            const token = signToken(_id);
+            res.cookie("access_token", token, {
+                httpOnly: true,
+                sameSite: true,
+            });
+            res.status(200).json({
+                isAuthenticated: true,
+                user: { username },
+            });
+        }
+    }
+);
+
+// Logout
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.clearCookie("access_token");
+    res.json({ user: { username: "" }, success: true });
+});
+
+// Getting All
+router.get("/", async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Getting One
+router.get("/:id", getUser, (req, res) => {
+    res.send(res.user);
 });
 
 // Updating One
@@ -101,5 +128,16 @@ async function getUser(req, res, next) {
     res.user = user;
     next();
 }
+
+const signToken = (userID) => {
+    return JWT.sign(
+        {
+            iss: "sagekozub.com",
+            sub: userID,
+        },
+        "VeryCoolSecret",
+        { expiresIn: "72h" }
+    );
+};
 
 module.exports = router;

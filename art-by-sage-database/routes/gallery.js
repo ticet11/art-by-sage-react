@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
+const passportConfig = require("../passport");
+const JWT = require("jsonwebtoken");
 const GalleryItem = require("../models/galleryItem");
 
 // Getting All
@@ -18,43 +21,45 @@ router.get("/:id", getGalleryItem, (req, res) => {
 });
 
 // Creating One
-router.post("/", async (req, res) => {
-    const galleryItem = new GalleryItem({
-        title: req.body.title,
-        category: req.body.category,
-        description: req.body.description,
-        imageLocation: req.body.imageLocation,
-    });
+router.post(
+    "/",
+    async (req, res) => {
+        const galleryItem = new GalleryItem({
+            title: req.body.title,
+            category: req.body.category,
+            description: req.body.description,
+            imageLocation: req.body.imageLocation,
+        });
 
-    try {
-        const newGalleryItem = await galleryItem.save();
-        res.status(201).json(newGalleryItem);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
+        try {
+            const newGalleryItem = await galleryItem.save();
+            res.status(201).json(newGalleryItem);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
     }
-});
+);
 
 // Updating One
 router.patch("/:id", getGalleryItem, async (req, res) => {
     if (req.body.title != null) {
-        res.galleryItem.title = req.body.title
+        res.galleryItem.title = req.body.title;
     }
     if (req.body.category != null) {
-        res.galleryItem.category = req.body.category
+        res.galleryItem.category = req.body.category;
     }
     if (req.body.description != null) {
-        res.galleryItem.description = req.body.description
+        res.galleryItem.description = req.body.description;
     }
     if (req.body.imageLocation != null) {
-        res.galleryItem.imageLocation = req.body.imageLocation
+        res.galleryItem.imageLocation = req.body.imageLocation;
     }
     try {
-        const updatedGalleryItem = await res.galleryItem.save()
-        res.json(updatedGalleryItem)
+        const updatedGalleryItem = await res.galleryItem.save();
+        res.json(updatedGalleryItem);
     } catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message });
     }
-    
 });
 
 //Deleting One
