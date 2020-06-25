@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import AuthService from "../../Services/AuthService";
-// import Message from "../../components/Messages";
+import Message from "./Message";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = (props) => {
@@ -42,14 +42,14 @@ const Login = (props) => {
                 />
                 <label htmlFor="password">Password:</label>
                 <input
-                    type="text"
+                    type="password"
                     name="password"
                     onChange={onChange}
                     placeholder="**********"
                 />
                 <button type="submit">Log In</button>
             </form>
-            {/* {message ? <Message message={message} /> : null} */}
+            {message ? <Message message={message} /> : null}
         </div>
     );
 };

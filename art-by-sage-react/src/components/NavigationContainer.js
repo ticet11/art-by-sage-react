@@ -31,9 +31,9 @@ const NavigationContainer = (props) => {
                 <div>
                     <NavLink to="/gallery">Gallery</NavLink>
                 </div>
-                <div>
+                {/* <div>
                     <NavLink to="/shop">Shop</NavLink>
-                </div>
+                </div> */}
                 <div>
                     <NavLink to="/contact">Contact</NavLink>
                 </div>

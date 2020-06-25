@@ -48,7 +48,7 @@ function App() {
                         path="/gallery"
                         component={Gallery}
                     />
-                    <Route exact path="/shop" component={Shop} />
+                    {/* <Route exact path="/shop" component={Shop} /> */}
                     <Route
                         exact
                         path="/contact"
@@ -60,6 +60,19 @@ function App() {
                         component={Commissions}
                     />
                     <Route exact path="/login" component={Login} />
+                    {isAuthenticated ? (
+                        <Route
+                            exact
+                            path="/galleryEditor"
+                            component={GalleryEditor}
+                        />
+                    ) : (
+                        <Route
+                            exact
+                            path="/galleryEditor"
+                            component={GalleryEditor}
+                        />
+                    )}
                 </Switch>
             </div>
         </Router>

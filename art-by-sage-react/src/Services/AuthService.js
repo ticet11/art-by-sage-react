@@ -1,19 +1,7 @@
 export default {
     login: (user) => {
         return fetch("http://localhost:3000/users/login", {
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => data);
-    },
-
-    register: (user) => {
-        return fetch("http://localhost:3000/users/register", {
-            method: "POST",
+            method: "post",
             body: JSON.stringify(user),
             headers: {
                 "Content-Type": "application/json",
