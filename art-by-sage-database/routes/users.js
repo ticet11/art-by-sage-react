@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
+const passportConfig = require("../passport");
+const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 
 // Getting All
@@ -18,18 +21,43 @@ router.get("/:id", getUser, (req, res) => {
 });
 
 // Creating One
-router.post("/", async (req, res) => {
-    const user = new User({
-        username: req.body.username,
-        password: req.body.password,
-    })
-
-    try {
-        const newUser = await user.save();
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+router.post("/register", async (req, res) => {
+    const { username, password } = req.body;
+    User.findOne({ username }, (err, user) => {
+        if (err)
+            res.status(500).json({
+                message: {
+                    msgBody: "Registration Error",
+                    msgError: true,
+                },
+            });
+        if (user)
+            res.status(400).json({
+                message: {
+                    msgBody: "Username already in use.",
+                    msgError: true,
+                },
+            });
+        else {
+            const newUser = new User({ username, password });
+            newUser.save((err) => {
+                if (err)
+                    res.status(500).json({
+                        message: {
+                            msgBody: "Registration Error",
+                            msgError: true,
+                        },
+                    });
+                else
+                    res.status(201).json({
+                        message: {
+                            msgBody: "Account successfully created.",
+                            msgError: false,
+                        },
+                    });
+            });
+        }
+    });
 });
 
 // Updating One
