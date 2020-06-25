@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 
-export default function NavigationContainer() {
+const NavigationContainer = (props) => {
     return (
         <div className="navigation-container">
             <div className="nav-left">
@@ -31,4 +31,6 @@ export default function NavigationContainer() {
             </div>
         </div>
     );
-}
+};
+
+export default NavigationContainer;
