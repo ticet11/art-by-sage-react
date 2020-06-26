@@ -1,36 +1,51 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-
-import { AuthContext } from "../context/AuthContext";
 
 const GalleryEditor = (props) => {
+    const [galleryItem, setGalleryItem] = useState({
+        title: "",
+        category: "",
+        imageLocation: "",
+        description: "",
+    });
     const { register, handleSubmit } = useForm();
-    const { isAuthenticated } = useContext(AuthContext);
-    const onSubmit = (data, event) => {
+
+    const onChange = (event) => {
         event.preventDefault();
-        console.log(data);
-        axios
-            .post({
-                url: "http://localhost:3000/gallery",
-                data: data,
-            })
+        setGalleryItem({
+            ...galleryItem,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        debugger;
+        console.log(galleryItem);
+        fetch("http://localhost:3000/gallery", {
+            method: "POST",
+            body: JSON.stringify(galleryItem),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
             .then((res) => {
                 console.log(res);
             })
             .catch((error) => {
                 console.error("add gallery item error", error);
             });
-        // event.target.reset();
+        event.target.reset();
     };
 
     return (
         <div>
-            <form className="form-container">
+            <form onSubmit={onSubmit} className="form-container">
                 <input
                     type="text"
                     name="title"
                     placeholder="title"
+                    onChange={onChange}
                     ref={register({
                         required: "What's the title?",
                     })}
@@ -39,6 +54,7 @@ const GalleryEditor = (props) => {
                     type="text"
                     name="category"
                     placeholder="category"
+                    onChange={onChange}
                     ref={register({
                         required: "What's the category?",
                     })}
@@ -47,6 +63,7 @@ const GalleryEditor = (props) => {
                     type="text"
                     name="imageLocation"
                     placeholder="image location"
+                    onChange={onChange}
                     ref={register({
                         required: "What URL is your image hosted at?",
                     })}
@@ -55,6 +72,7 @@ const GalleryEditor = (props) => {
                     type="text"
                     name="description"
                     placeholder="description"
+                    onChange={onChange}
                     ref={register({
                         required: "Tell me about this piece.",
                     })}

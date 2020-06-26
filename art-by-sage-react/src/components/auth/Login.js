@@ -13,7 +13,6 @@ const Login = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(user);
         fetch("http://localhost:3000/users/login", {
             method: "POST",
             body: JSON.stringify(user),
@@ -29,7 +28,8 @@ const Login = (props) => {
             })
             .then(() => {
                 props.history.push("/galleryeditor");
-            });
+            })
+            .catch((error) => console.error(error));
     };
 
     return (
