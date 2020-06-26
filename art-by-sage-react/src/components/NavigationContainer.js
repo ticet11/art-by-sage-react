@@ -51,7 +51,7 @@ const NavigationContainer = (props) => {
                 </div>
                 <div>
                     {isAuthenticated ? (
-                        <button onClick={onLogoutClick()}>
+                        <button onClick={() => onLogoutClick()}>
                             Logout
                         </button>
                     ) : null}

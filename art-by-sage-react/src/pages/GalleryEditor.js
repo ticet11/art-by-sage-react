@@ -6,7 +6,10 @@ export default function GalleryEditor() {
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data, event) => {
         axios
-            .post("http://localhost:3000/gallery", data)
+            .post("http://localhost:3000/gallery", data, {
+                withCredentials: true,
+                credentials: "include",
+            })
             .then((res) => {
                 console.log(res);
             })

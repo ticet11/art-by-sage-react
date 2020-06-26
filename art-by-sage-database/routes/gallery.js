@@ -19,24 +19,22 @@ router.get("/:id", getGalleryItem, (req, res) => {
 });
 
 // Creating One
-router.post(
-    "/",
-    async (req, res) => {
-        const galleryItem = new GalleryItem({
-            title: req.body.title,
-            category: req.body.category,
-            description: req.body.description,
-            imageLocation: req.body.imageLocation,
-        });
+router.post("/", async (req, res) => {
+    console.log(res, req);
+    const galleryItem = new GalleryItem({
+        title: req.body.title,
+        category: req.body.category,
+        description: req.body.description,
+        imageLocation: req.body.imageLocation,
+    });
 
-        try {
-            const newGalleryItem = await galleryItem.save();
-            res.status(201).json(newGalleryItem);
-        } catch (error) {
-            res.status(400).json({ message: error.message });
-        }
+    try {
+        const newGalleryItem = await galleryItem.save();
+        res.status(201).json(newGalleryItem);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
     }
-);
+});
 
 // Updating One
 router.patch("/:id", getGalleryItem, async (req, res) => {

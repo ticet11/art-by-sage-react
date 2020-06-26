@@ -6,9 +6,15 @@ export default {
             headers: {
                 "Content-Type": "application/json",
             },
+            withCredentials: true,
+            credentials: "include",
         })
-            .then((res) => res.json())
-            .then((data) => data);
+            .then((res) => {
+                // debugger;
+                console.log(res);
+                return res.json();
+            })
+            .then((res) => res);
     },
 
     logout: () => {
@@ -18,9 +24,10 @@ export default {
     },
 
     isAuthenticated: () => {
-        return fetch(
-            "http://localhost:3000/users/authenticated"
-        ).then((res) => {
+        return fetch("http://localhost:3000/users/authenticated", {
+            withCredentials: true,
+            credentials: "include",
+        }).then((res) => {
             if (res.status !== 401)
                 return res.json().then((data) => data);
             else

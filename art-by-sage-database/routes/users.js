@@ -5,6 +5,17 @@ const passportConfig = require("../passport");
 const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 
+const signToken = (userID) => {
+    return JWT.sign(
+        {
+            iss: "sagekozub.com",
+            sub: userID,
+        },
+        "VeryCoolSecret",
+        { expiresIn: "604800" }
+    );
+};
+
 // Creating One
 router.post("/register", async (req, res) => {
     const { username, password } = req.body;
@@ -82,6 +93,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+// Authenticate
 router.get(
     "/authenticated",
     passport.authenticate("jwt", { session: false }),
@@ -140,16 +152,5 @@ async function getUser(req, res, next) {
     res.user = user;
     next();
 }
-
-const signToken = (userID) => {
-    return JWT.sign(
-        {
-            iss: "sagekozub.com",
-            sub: userID,
-        },
-        "VeryCoolSecret",
-        { expiresIn: "72h" }
-    );
-};
 
 module.exports = router;
