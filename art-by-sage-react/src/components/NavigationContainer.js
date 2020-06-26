@@ -11,7 +11,7 @@ const NavigationContainer = (props) => {
     } = useContext(AuthContext);
 
     const onLogoutClick = () => {
-        console.log('logout attempted')
+        setIsAuthenticated(false);
     };
     return (
         <div className="navigation-container">

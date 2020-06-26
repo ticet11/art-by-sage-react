@@ -4,9 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Login = (props) => {
     const [user, setUser] = useState({ username: "", password: "" });
-    const { setIsAuthenticated } = useContext(
-        AuthContext
-    );
+    const { setIsAuthenticated } = useContext(AuthContext);
 
     const onChange = (event) => {
         event.preventDefault();
@@ -28,10 +26,10 @@ const Login = (props) => {
                 {
                     setIsAuthenticated(isTrue);
                 }
+            })
+            .then(() => {
+                props.history.push("/galleryeditor");
             });
-        {
-            props.history.push("/galleryeditor");
-        }
     };
 
     return (
