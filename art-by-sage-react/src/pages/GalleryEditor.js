@@ -39,8 +39,9 @@ const GalleryEditor = (props) => {
     };
 
     return (
-        <div>
+        <div className='gallery-editor-form-wrapper form-wrapper'>
             <form onSubmit={onSubmit} className="form-container">
+                <h3>Add New Gallery Item</h3>
                 <input
                     type="text"
                     name="title"

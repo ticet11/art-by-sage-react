@@ -33,22 +33,22 @@ const Login = (props) => {
     };
 
     return (
-        <div className="login-container">
-            <form onSubmit={onSubmit}>
+        <div className="login-form-wrapper form-wrapper">
+            <form className='form-container' onSubmit={onSubmit}>
                 <h3>Sign In</h3>
-                <label htmlFor="username">Username:</label>
+                
                 <input
                     type="text"
                     name="username"
                     onChange={onChange}
-                    placeholder="user123"
+                    placeholder="Username"
                 />
-                <label htmlFor="password">Password:</label>
+            
                 <input
                     type="password"
                     name="password"
                     onChange={onChange}
-                    placeholder="**********"
+                    placeholder="Passord"
                 />
                 <button type="submit">Log In</button>
             </form>

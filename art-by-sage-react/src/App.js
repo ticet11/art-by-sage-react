@@ -10,11 +10,10 @@ import {
     faCircleNotch,
 } from "@fortawesome/free-solid-svg-icons";
 
-import PrivateRoute from './components/auth/PrivateRoute';
+import PrivateRoute from "./components/auth/PrivateRoute";
 import NavigationContainer from "./components/NavigationContainer";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
-import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Commissions from "./pages/Commissions";
 import Login from "./components/auth/Login";
@@ -46,7 +45,6 @@ function App(props) {
                         path="/gallery"
                         component={Gallery}
                     />
-                    {/* <Route exact path="/shop" component={Shop} /> */}
                     <Route
                         exact
                         path="/contact"

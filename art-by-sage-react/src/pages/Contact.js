@@ -19,11 +19,12 @@ export default function Contact() {
         event.target.reset();
     };
     return (
-        <div className="contact-form-container">
+        <div className="contact-form-wrapper form-wrapper">
             <form
                 className="form-container"
                 onSubmit={handleSubmit(onSubmit)}
-            >
+                >
+                <h3>Contact</h3>
                 <input
                     type="text"
                     placeholder="Name"

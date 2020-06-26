@@ -1,4 +1,20 @@
-.form-container {
-    display: grid;
+.form-wrapper {
+    height: calc(100vh - 37px);
+    display: flex;
     justify-content: center;
+    align-items: center;
+    .form-container {
+        display: grid;
+        justify-content: center;
+        gap: 10px;
+        border: 1px black solid;
+        border-radius: 5px;
+        width: 300px;
+        height: auto;
+        padding: 50px;
+
+        input {
+            height: 30px;
+        }
+    }
 }
