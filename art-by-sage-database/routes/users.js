@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // Getting One
-router.get("/:id", getUser, (req, res) => {
+router.get("/:id", getUserById, (req, res) => {
     res.send(res.user);
 });
 
@@ -58,8 +58,16 @@ router.post("/register", async (req, res) => {
 });
 
 // Login
-router.post("/login", (req, res) => {
-    console.log("log in attempt");
+router.post("/login", getUserByUsername, async (req, res) => {
+    console.log(res.user);
+    // User.findOne({ username }, (err, user) => {
+    //     // something went wrong with database
+    //     if (err) return done(err);
+    //     // if no user exist
+    //     if (!user) return done(null, false);
+    //     // check if password is correct
+    //     user.comparePassword(password, done);
+    // });
 });
 
 // Logout
@@ -68,7 +76,7 @@ router.get("/logout", (req, res) => {
 });
 
 // Updating One
-router.patch("/:id", getUser, async (req, res) => {
+router.patch("/:id", getUserById, async (req, res) => {
     if (req.body.username != null) {
         res.user.username = req.body.username;
     }
@@ -84,7 +92,7 @@ router.patch("/:id", getUser, async (req, res) => {
 });
 
 //Deleting One
-router.delete("/:id", getUser, async (req, res) => {
+router.delete("/:id", getUserById, async (req, res) => {
     try {
         await res.user.remove();
         res.json({ message: "Deleted user" });
@@ -93,9 +101,24 @@ router.delete("/:id", getUser, async (req, res) => {
     }
 });
 
-async function getUser(req, res, next) {
+async function getUserById(req, res, next) {
     try {
         user = await User.findById(req.params.id);
+        if (user == null) {
+            return res
+                .status(404)
+                .json({ message: "cannot find user" });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+
+    res.user = user;
+    next();
+}
+async function getUserByUsername(req, res, next) {
+    try {
+        user = await User.findOne({ username: req.body.username });
         if (user == null) {
             return res
                 .status(404)
