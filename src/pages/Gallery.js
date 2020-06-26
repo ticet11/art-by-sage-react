@@ -8,7 +8,7 @@ export default function Gallery() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/gallery")
+            .get("https://art-by-sage-database.herokuapp.com/gallery")
             .then((res) => {
                 setGallery(res.data);
                 setIsLoading(false);

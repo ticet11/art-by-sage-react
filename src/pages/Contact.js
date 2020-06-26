@@ -9,7 +9,7 @@ export default function Contact() {
 
     const onSubmit = (data, event) => {
         axios
-            .post("http://localhost:3000/mail/send", data)
+            .post("https://art-by-sage-database.herokuapp.com/mail/send", data)
             .then((res) => {
                 setSent(true);
             })

@@ -13,7 +13,7 @@ const Login = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/users/login", {
+        fetch("https://art-by-sage-database.herokuapp.com/users/login", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {

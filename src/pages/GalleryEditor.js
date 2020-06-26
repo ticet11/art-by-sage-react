@@ -22,7 +22,7 @@ const GalleryEditor = (props) => {
         event.preventDefault();
         debugger;
         console.log(galleryItem);
-        fetch("http://localhost:3000/gallery", {
+        fetch("https://art-by-sage-database.herokuapp.com/gallery", {
             method: "POST",
             body: JSON.stringify(galleryItem),
             headers: {
