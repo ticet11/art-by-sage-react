@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
-import AuthService from "../Services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 
 const NavigationContainer = (props) => {
@@ -12,12 +11,7 @@ const NavigationContainer = (props) => {
     } = useContext(AuthContext);
 
     const onLogoutClick = () => {
-        AuthService.logout().then((data) => {
-            if (data.success) {
-                setUser(data.user);
-                setIsAuthenticated(false);
-            }
-        });
+        console.log('logout attempted')
     };
     return (
         <div className="navigation-container">

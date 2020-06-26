@@ -1,11 +1,9 @@
 import React, { useState, useContext } from "react";
 
-import Message from "./Message";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = (props) => {
     const [user, setUser] = useState({ username: "", password: "" });
-    const [message, setMessage] = useState(null);
     const authContext = useContext(AuthContext);
 
     const onChange = (event) => {
@@ -16,7 +14,6 @@ const Login = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        
     };
 
     return (
@@ -39,7 +36,6 @@ const Login = (props) => {
                 />
                 <button type="submit">Log In</button>
             </form>
-            {message ? <Message message={message} /> : null}
         </div>
     );
 };
