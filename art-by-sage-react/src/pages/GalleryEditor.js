@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-export default function GalleryEditor() {
-    const { register, handleSubmit, errors, reset } = useForm();
+import { AuthContext } from "../context/AuthContext";
+
+const GalleryEditor = (props) => {
+    const { register, handleSubmit } = useForm();
+    const { isAuthenticated } = useContext(AuthContext);
     const onSubmit = (data, event) => {
         event.preventDefault();
         console.log(data);
@@ -62,4 +65,6 @@ export default function GalleryEditor() {
             </form>
         </div>
     );
-}
+};
+
+export default GalleryEditor;

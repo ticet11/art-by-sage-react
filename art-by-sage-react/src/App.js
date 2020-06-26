@@ -10,6 +10,7 @@ import {
     faCircleNotch,
 } from "@fortawesome/free-solid-svg-icons";
 
+import PrivateRoute from './components/auth/PrivateRoute';
 import NavigationContainer from "./components/NavigationContainer";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
@@ -25,7 +26,7 @@ import { AuthContext } from "./context/AuthContext";
 
 library.add(faExclamationTriangle, faCircleNotch);
 
-function App() {
+function App(props) {
     const {
         user,
         setUser,
@@ -57,19 +58,12 @@ function App() {
                         component={Commissions}
                     />
                     <Route exact path="/login" component={Login} />
-                    {isAuthenticated ? (
-                        <Route
-                            exact
-                            path="/galleryEditor"
-                            component={GalleryEditor}
-                        />
-                    ) : (
-                        <Route
-                            exact
-                            path="/galleryEditor"
-                            component={GalleryEditor}
-                        />
-                    )}
+
+                    <PrivateRoute
+                        exact
+                        path="/galleryEditor"
+                        component={GalleryEditor}
+                    />
                 </Switch>
             </div>
         </Router>
