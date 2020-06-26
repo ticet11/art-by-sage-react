@@ -1,0 +1,41 @@
+// - space between price-items
+// - new font
+// - background color - pale yellowish
+// - purple to pink
+
+.commissions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .commission-intro {
+        width: 80vw;
+        border: black solid 1px;
+        display: grid;
+        grid-template-columns: 170px auto;
+        margin: 50px 0;
+        p {
+            font-size: 1.4em;
+        }
+    }
+    .prices {
+        width: 80vw;
+        border: black solid 1px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .commission-type {
+            display: grid;
+            grid-template-columns: 170px auto;
+
+            .text h2 {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .how-commissions-work {
+        width: 80vw;
+        margin: 50px 0;
+    }
+}
