@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 
-import AuthService from "../Services/AuthService";
-
 export const AuthContext = createContext();
 
 export default ({ children }) => {
@@ -10,11 +8,7 @@ export default ({ children }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        AuthService.isAuthenticated().then((data) => {
-            setUser(data.user);
-            setIsAuthenticated(data.isAuthenticated);
-            setIsLoaded(true);
-        });
+        console.log(isAuthenticated);
     }, []);
 
     return (

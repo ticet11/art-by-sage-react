@@ -5,10 +5,12 @@ import axios from "axios";
 export default function GalleryEditor() {
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data, event) => {
+        event.preventDefault();
+        console.log(data);
         axios
-            .post("http://localhost:3000/gallery", data, {
-                withCredentials: true,
-                credentials: "include",
+            .post({
+                url: "http://localhost:3000/gallery",
+                data: data,
             })
             .then((res) => {
                 console.log(res);
@@ -16,7 +18,7 @@ export default function GalleryEditor() {
             .catch((error) => {
                 console.error("add gallery item error", error);
             });
-        event.target.reset();
+        // event.target.reset();
     };
 
     return (

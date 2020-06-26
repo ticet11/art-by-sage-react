@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 
-import AuthService from "../../Services/AuthService";
 import Message from "./Message";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -17,16 +16,7 @@ const Login = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        AuthService.login(user).then((data) => {
-            const { isAuthenticated, user, message } = data;
-            if (isAuthenticated) {
-                authContext.setUser(user);
-                authContext.setIsAuthenticated(isAuthenticated);
-                props.history.push("/galleryeditor");
-            } else {
-                setMessage(message);
-            }
-        });
+        
     };
 
     return (
