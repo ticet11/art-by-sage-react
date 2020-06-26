@@ -59,15 +59,11 @@ router.post("/register", async (req, res) => {
 
 // Login
 router.post("/login", getUserByUsername, async (req, res) => {
-    console.log(res.user);
-    // User.findOne({ username }, (err, user) => {
-    //     // something went wrong with database
-    //     if (err) return done(err);
-    //     // if no user exist
-    //     if (!user) return done(null, false);
-    //     // check if password is correct
-    //     user.comparePassword(password, done);
-    // });
+    // check if password is correct
+    user.comparePassword(req.body.password, function (err, isMatch) {
+        if (err) throw err;
+        res.json(isMatch);
+    });
 });
 
 // Logout
