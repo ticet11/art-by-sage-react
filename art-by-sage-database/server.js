@@ -4,7 +4,6 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const cookieParser = require("cookie-parser");
 
 mongoose.connect(process.env.DATABASE_URI, {
     useNewUrlParser: true,
