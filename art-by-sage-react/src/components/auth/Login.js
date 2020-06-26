@@ -9,11 +9,20 @@ const Login = (props) => {
     const onChange = (event) => {
         event.preventDefault();
         setUser({ ...user, [event.target.name]: event.target.value });
-        console.log(user);
     };
 
     const onSubmit = (event) => {
         event.preventDefault();
+        console.log(user);
+        fetch("http://localhost:3000/users/login", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((isAuthenticated) => console.log(`User is authenticated: ${isAuthenticated}`));
     };
 
     return (

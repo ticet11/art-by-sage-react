@@ -33,9 +33,6 @@ function App() {
         setIsAuthenticated,
     } = useContext(AuthContext);
 
-    console.log(user);
-    console.log(isAuthenticated);
-
     return (
         <Router>
             <div className="App">
