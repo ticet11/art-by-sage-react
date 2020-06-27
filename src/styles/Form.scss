@@ -3,18 +3,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     .form-container {
         display: grid;
         justify-content: center;
         gap: 10px;
         border: 1px black solid;
         border-radius: 5px;
-        width: 300px;
+        width: 500px;
         height: auto;
         padding: 50px;
+        box-shadow: 10px 10px 19px 5px rgba(0, 0, 0, 0.5);
 
         input {
             height: 30px;
+            width: 400px;
         }
     }
 }
