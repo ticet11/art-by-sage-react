@@ -1,6 +1,6 @@
 import React from "react";
-import sageAndBaby from "../assets/images/sageandbaby.jpg";
-import familyPic from "../assets/images/familypic.jpg";
+import main from '../assets/images/main.jpg';
+import familyPhoto from "../assets/images/familyPhoto.jpg";
 
 export default function Home() {
     return (
@@ -17,7 +17,7 @@ export default function Home() {
                 <div
                     style={{
                         background:
-                            "url(" + sageAndBaby + ") no-repeat",
+                            "url(" + main + ") no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         width: "60%",
@@ -31,7 +31,7 @@ export default function Home() {
                 <div
                     style={{
                         background:
-                            "url(" + familyPic + ") no-repeat",
+                            "url(" + familyPhoto + ") no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         width: "60%",
