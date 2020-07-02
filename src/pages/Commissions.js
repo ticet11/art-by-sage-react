@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import headshot from "../assets/images/head.jpg";
+import halfBody from "../assets/images/halfBody.jpg";
+import fullBody from "../assets/images/fullBody.jpg";
 
 export default function Commissions() {
     return (
@@ -21,7 +24,7 @@ export default function Commissions() {
             <div className="prices commission-div">
                 <div className="commission-type">
                     <img
-                        src="https://via.placeholder.com/150"
+                        src={headshot}
                         alt=""
                         className="price-image"
                     />
@@ -38,7 +41,7 @@ export default function Commissions() {
                 </div>
                 <div className="commission-type">
                     <img
-                        src="https://via.placeholder.com/150"
+                        src={halfBody}
                         alt=""
                         className="price-image"
                     />
@@ -55,12 +58,12 @@ export default function Commissions() {
                 </div>
                 <div className="commission-type">
                     <img
-                        src="https://via.placeholder.com/150"
+                        src={fullBody}
                         alt=""
                         className="price-image"
                     />
                     <div className="text">
-                        <h2>Head</h2>
+                        <h2>Full Body</h2>
                         <p>
                             $30 for first subject and $12 for each
                             additional subject

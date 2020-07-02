@@ -29,6 +29,11 @@
             display: grid;
             grid-template-columns: 170px auto;
 
+            img {
+                max-height: 150px;
+                max-width: 150px;
+            }
+
             .text h2 {
                 margin-bottom: 10px;
             }
